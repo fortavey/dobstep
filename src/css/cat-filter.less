@@ -1,0 +1,34 @@
+.cat-filter {
+  margin-bottom: 95px;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 40px;
+  }
+  &__title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    @media screen and (max-width: 500px) {
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+  }
+  &__list {
+    .flex();
+    justify-content: space-between;
+  }
+  &__item {
+    padding: 11px 36px;
+    font-size: 24px;
+    cursor: pointer;
+    @media screen and (max-width: 500px) {
+      padding: 5px 20px;
+      font-size: 18px;
+    }
+    &.active {
+      background: rgba(44, 97, 246, 0.83);
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}

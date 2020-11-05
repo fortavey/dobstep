@@ -26,7 +26,6 @@ const cssFilesArray = [
 	'./src/constant/css/wp.less',
 	'./src/constant/css/normalize.less',
 	'./src/constant/css/magnific-popup.less',
-	'./src/constant/css/slick.less',
 	'./src/constant/css/options.less',
 ];
 pushFiles();
@@ -67,7 +66,7 @@ function html(){
 			   .pipe(gulpif(isSync, browserSync.stream()));
 }
 const jsFilesArray = [
-	'./src/constant/plugins/slick.min.js',
+	'./src/constant/plugins/vue.js',
 	'./src/constant/plugins/jquery.magnific-popup.min.js',
 ];
 pushJsFiles();
@@ -97,6 +96,10 @@ function img(){
 	return gulp.src('./src/img/**/*')
 							.pipe(gulp.dest('./build/img'));
 }
+function fonts(){
+	return gulp.src('./src/fonts/**/*')
+							.pipe(gulp.dest('./build/fonts'));
+}
 function moveJquery(){
 	return gulp.src('./src/constant/jquery/**/*')
 							.pipe(gulp.dest('./build/js/jquery'))
@@ -116,7 +119,7 @@ function watch(){
 	gulp.watch('./src/**/*.html', html);
 }
 
-let build = gulp.series(clear, gulp.parallel(styles, html, js, img, moveJquery));
+let build = gulp.series(clear, gulp.parallel(styles, html, js, img, fonts, moveJquery));
 
 gulp.task('build', build);
 gulp.task('watch', gulp.series(build, watch));
