@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Grid</title>
+    <script type='text/javascript' src='js/jquery/jquery.js'></script>
+    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header" style="background-image: url(./img/header.png)">
+        <div class="top-line">
+            <div class="wrapper">
+                <div class="lang">
+                    <div class="lang-list">
+                        <div class="lang-list__item active">
+                            <img src="./img/russia.svg" alt="flag">
+                            <span class="lang-name">Русский</span>
+                        </div>
+                        <div class="item-absolute">
+                            <div class="lang-list__item">
+                                <img src="./img/gbr.svg" alt="flag">
+                                <span class="lang-name">English</span>
+                            </div>
+                            <div class="lang-list__item">
+                                <img src="./img/ltv.svg" alt="flag">
+                                <span class="lang-name">Latviešu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo">
+                    <a href="/"><img src="./img/logo.svg" alt="logo"></a>
+                </div>
+                <div class="social">
+                    <a href="https://facebook.com/dobystepru"><img src="./img/fb.svg" alt="icon"></a>
+                    <a href="https://instagram.com/dobystepru"><img src="./img/vk.svg" alt="icon"></a>
+                    <a href="https://vk.com/dobystepru"><img src="./img/in.svg" alt="icon"></a>
+                </div>
+            </div>
+        </div>
+        <div class="search-line">
+            <div class="search-line__title">Найди готовые чеклисты за секунды</div>
+            <form action="">
+                <input type="text" placeholder="Найти Чеклист">
+                <input type="submit" value="Поиск">
+            </form>
+        </div>
+    </header>
+    <main class="site-main">
+        <div class="wrapper">
+            <div class="cat-filter">
+                <div class="cat-filter__title">Чеклисты по категориям</div>
+                <div style="position: relative;">
+                    <div class="mobile-filter-choosen">Все</div>
+                    <div class="cat-filter__list not-main-page">
+                        <a href="/#check"><div class="cat-filter__item active">Все</div></a>
+                        <a href="/?fCatID=1#check"><div class="cat-filter__item">Планнеры</div></a>
+                        <a href="/?fCatID=2#check"><div class="cat-filter__item">Цели</div></a>
+                        <a href="/?fCatID=3#check"><div class="cat-filter__item">Бизнес</div></a>
+                        <a href="/?fCatID=4#check"><div class="cat-filter__item">Финансы</div></a>
+                        <a href="/?fCatID=5#check"><div class="cat-filter__item">Книги</div></a>
+                        <a href="/?fCatID=6#check"><div class="cat-filter__item">Здоровье</div></a>
+                        <a href="/?fCatID=7#check"><div class="cat-filter__item">Спорт</div></a>
+                        <a href="/?fCatID=8#check"><div class="cat-filter__item">Самосовершенствование</div></a>
+                        <a href="/?fCatID=9#check"><div class="cat-filter__item">Путешествия</div></a>
+                        <a href="/?fCatID=10#check"><div class="cat-filter__item">Отношения</div></a>
+                        <a href="/?fCatID=11#check"><div class="cat-filter__item">Для женщин</div></a>
+                        <a href="/?fCatID=12#check"><div class="cat-filter__item">Уход за ссобой</div></a>
+                        <a href="/?fCatID=13#check"><div class="cat-filter__item">Дом</div></a>
+                        <a href="/?fCatID=14#check"><div class="cat-filter__item">Праздники</div></a>
+                        <a href="/?fCatID=15#check"><div class="cat-filter__item">Соц. сети</div></a>
+                        <a href="/?fCatID=16#check"><div class="cat-filter__item">Челленджи</div></a>
+                  </div>
+                </div>
+            </div>
+            <div class="page-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit eleifend maximus. Proin lorem libero, tempor at blandit in, aliquam id nunc. Nulla iaculis scelerisque velit non consequat. Vivamus eu nisi condimentum, porttitor felis ut, bibendum nibh. Nullam id eros eget quam auctor euismod vitae id velit. Duis non varius mauris. Maecenas dictum lobortis turpis, nec consectetur diam placerat at.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit eleifend maximus. Proin lorem libero, tempor at blandit in, aliquam id nunc. Nulla iaculis scelerisque velit non consequat. Vivamus eu nisi condimentum, porttitor felis ut, bibendum nibh. Nullam id eros eget quam auctor euismod vitae id velit. Duis non varius mauris. Maecenas dictum lobortis turpis, nec consectetur diam placerat at.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit eleifend maximus.
+              </p>
+            </div>
+            <div class="about-info">
+              <div class="logo"><img src="./img/logo-black.svg" alt="logo"></div>
+              <div class="email">Эл. почта: info@dobystep.com</div>
+              <div class="social">
+                <a href="https://facebook.com/dobystepru"><img src="./img/fb.svg" alt="icon"></a>
+                <a href="https://instagram.com/dobystepru"><img src="./img/vk.svg" alt="icon"></a>
+                <a href="https://vk.com/dobystepru"><img src="./img/in.svg" alt="icon"></a>
+              </div>
+            </div>
+            <div class="product-adver">
+                <div class="adver-item">Google ads</div>
+                <div class="adver-item">Google ads</div>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="wrapper">
+            <div class="logo">
+                <a href="/"><img src="./img/logo.svg" alt="logo"></a>
+                <div class="logo-desc">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                </div>
+            </div>
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="about.html">О проекте</a></li>
+                        <li><a href="">Политика конфиденциальности</a></li>
+                        <li><a href="mailto: info@dobystep.com">Напишите нам</a></li>
+                        <li><a href="">Пожертвования</a></li>
+                    </ul>
+                </nav>
+                <div class="social">
+                    <a href="https://facebook.com/dobystepru"><img src="./img/fb.svg" alt="icon"></a>
+                    <a href="https://instagram.com/dobystepru"><img src="./img/vk.svg" alt="icon"></a>
+                    <a href="https://vk.com/dobystepru"><img src="./img/in.svg" alt="icon"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copy">© 2019 Dobystep.com.</div>
+    </footer>
+    <script type='text/javascript' src='js/app.js'></script>
+</body>
+</html>

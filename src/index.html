@@ -13,22 +13,20 @@
         <div class="top-line">
             <div class="wrapper">
                 <div class="lang">
-                    <div class="main-lang">
-                        <img src="./img/russia.svg" alt="flag">
-                        <span class="lang-name">Русский</span>
-                    </div>
                     <div class="lang-list">
-                        <div class="lang-list__item">
-                            <img src="./img/gbr.svg" alt="flag">
-                            <span class="lang-name">Английский</span>
-                        </div>
-                        <div class="lang-list__item">
-                            <img src="./img/russia.svg" alt="flag">
-                            <span class="lang-name">Латышский</span>
-                        </div>
-                        <div class="lang-list__item">
+                        <div class="lang-list__item active">
                             <img src="./img/russia.svg" alt="flag">
                             <span class="lang-name">Русский</span>
+                        </div>
+                        <div class="item-absolute">
+                            <div class="lang-list__item">
+                                <img src="./img/gbr.svg" alt="flag">
+                                <span class="lang-name">English</span>
+                            </div>
+                            <div class="lang-list__item">
+                                <img src="./img/ltv.svg" alt="flag">
+                                <span class="lang-name">Latviešu</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,126 +52,34 @@
         <div class="wrapper">
             <div class="vue-object">
                 <div class="cat-filter">
-                    <div class="cat-filter__title">Чеклисты по категориям</div>
-                    <div class="cat-filter__list">
-                        <div class="cat-filter__item active">Все</div>
-                        <div class="cat-filter__item">Планнеры</div>
-                        <div class="cat-filter__item">Цели</div>
-                        <div class="cat-filter__item">Самосовершенствование</div>
-                        <div class="cat-filter__item">Бизнес</div>
-                        <div class="cat-filter__item">Финансы</div>
-                        <div class="cat-filter__item">Книги</div>
-                        <div class="cat-filter__item">Здоровье</div>
-                        <div class="cat-filter__item">Путешествия</div>
-                        <div class="cat-filter__item">Отношения</div>
-                        <div class="cat-filter__item">Для женщин</div>
-                        <div class="cat-filter__item">Уход за собой</div>
-                        <div class="cat-filter__item">Дом</div>
-                        <div class="cat-filter__item">Спорт</div>
-                        <div class="cat-filter__item">Праздники</div>
-                        <div class="cat-filter__item">Соц. сети</div>
-                        <div class="cat-filter__item">Челленджи</div>
+                    <div class="cat-filter__title" id="check">Чеклисты по категориям</div>
+                    <div style="position: relative;">
+                        <div class="mobile-filter-choosen" @click="onShowMobile">{{ choosenCat }}</div>
+                        <div class="cat-filter__list" v-if="showMobile">
+                            <div class="cat-filter__item" :class="classOnAll" @click="clickOnAll">Все</div>
+                            <div class="cat-filter__item"
+                                 v-for="category in categories"
+                                 @click="addActiveCat(category)"
+                                 :class="changeCatClass(category)"
+                            >{{ category.name }}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="product-list">
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod1.jpg" alt="thumb">
+                    <div class="product-list__item"
+                         v-for="(post, index) in activePosts"
+                         v-if="index < countPosts"
+                    >
+                        <a :href="post.link">
+                            <img :src="post.img" alt="thumb">
                         </a>
                         <div class="product-list__item-title">
-                            <a href="product.html">100 дней к цели</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod3.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Колесо жизненного баланса</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod4.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Трекер накоплений (50дней)</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod5.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">30 дневный фото челендж</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod6.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">План на неделю</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod7.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Самодисциплина и цели. Метод Брайана Трейси</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod8.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">20 идей постов, когда нечего писать</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod9.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">20 идей постов, когда нечего писать</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod10.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Чеклист важных дел</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod12.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Как вставать вовремя и не просыпать?</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod11.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Список подуктов здорового питания</a>
-                        </div>
-                    </div>
-                    <div class="product-list__item">
-                        <a href="product.html">
-                            <img src="./img/prod2.jpg" alt="thumb">
-                        </a>
-                        <div class="product-list__item-title">
-                            <a href="product.html">Еженедельный отчет</a>
+                            <a :href="post.link">{{ post.title }}</a>
                         </div>
                     </div>
                 </div>
-                <div class="show-more-btn btn">Загрузить больше</div>
+                <div class="show-more-btn btn" @click="addMore" v-if="activePosts.length > countPosts">Загрузить больше</div>
             </div>
             <div class="donat">
                 <img src="./img/donat.svg" alt="donat">
@@ -194,7 +100,7 @@
     <footer class="site-footer">
         <div class="wrapper">
             <div class="logo">
-                <img src="./img/logo.svg" alt="logo">
+                <a href="/"><img src="./img/logo.svg" alt="logo"></a>
                 <div class="logo-desc">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
                 </div>
@@ -202,9 +108,9 @@
             <div class="menu">
                 <nav>
                     <ul>
-                        <li><a href="">О проекте</a></li>
+                        <li><a href="about.html">О проекте</a></li>
                         <li><a href="">Политика конфиденциальности</a></li>
-                        <li><a href="">Напишите нам</a></li>
+                        <li><a href="mailto: info@dobystep.com">Напишите нам</a></li>
                         <li><a href="">Пожертвования</a></li>
                     </ul>
                 </nav>
@@ -217,6 +123,220 @@
         </div>
         <div class="copy">© 2019 Dobystep.com.</div>
     </footer>
+    <script>
+        var categories = [
+            {
+                id: 1,
+                name: 'Планнеры',
+                posts: [1,2,3,4]
+            },
+            {
+                id: 2,
+                name: 'Цели',
+                posts: [5,6,7,8]
+            },
+            {
+                id: 3,
+                name: 'Бизнес',
+                posts: [1,2,3,4]
+            },
+            {
+                id: 4,
+                name: 'Финансы',
+                posts: [5,6,7,8]
+            },
+            {
+                id: 5,
+                name: 'Книги',
+                posts: [9,10,11,12]
+            },
+            {
+                id: 6,
+                name: 'Здоровье',
+                posts: [1,2,3,4]
+            },
+            {
+                id: 7,
+                name: 'Спорт',
+                posts: [1,2,3,4]
+            },
+            {
+                id: 8,
+                name: 'Самосовершенствование',
+                posts: [9,10,11,12]
+            },
+            {
+                id: 9,
+                name: 'Путешествия',
+                posts: [5,6,7,8]
+            },
+            {
+                id: 10,
+                name: 'Отношения',
+                posts: [9,10,11,12]
+            },
+            {
+                id: 11,
+                name: 'Для женщин',
+                posts: [1,2,3,4]
+            },
+            {
+                id: 12,
+                name: 'Уход за собой',
+                posts: [5,6,7,8]
+            },
+            {
+                id: 13,
+                name: 'Дом',
+                posts: [9,10,11,12]
+            },
+            {
+                id: 14,
+                name: 'Праздники',
+                posts: [5,6,7,8]
+            },
+            {
+                id: 15,
+                name: 'Соц. сети',
+                posts: [9,10,11,12]
+            },
+            {
+                id: 16,
+                name: 'Челленджи',
+                posts: [1,2,3,4]
+            },
+        ];
+
+        var posts = [
+            {
+                id: 1,
+                title: '100 дней к цели',
+                img: './img/prod1.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 2,
+                title: 'Еженедельный отчет',
+                img: './img/prod2.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 3,
+                title: 'Колесо жизненного баланса',
+                img: './img/prod3.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 4,
+                title: 'Трекер накоплений (50дней)',
+                img: './img/prod4.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 5,
+                title: '30 дневный фото челендж',
+                img: './img/prod5.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 6,
+                title: 'План на неделю',
+                img: './img/prod6.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 7,
+                title: 'Самодисциплина и цели. Метод Брайана Трейси',
+                img: './img/prod7.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 8,
+                title: '20 идей постов, когда нечего писать',
+                img: './img/prod8.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 9,
+                title: '20 идей постов, когда нечего писать',
+                img: './img/prod9.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 10,
+                title: 'Чеклист важных дел',
+                img: './img/prod3.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 11,
+                title: 'Список подуктов здорового питания',
+                img: './img/prod11.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 12,
+                title: 'Как вставать вовремя и не просыпать?',
+                img: './img/prod12.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 13,
+                title: '30 дневный фото челендж',
+                img: './img/prod5.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 14,
+                title: 'План на неделю',
+                img: './img/prod6.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 15,
+                title: 'Самодисциплина и цели. Метод Брайана Трейси',
+                img: './img/prod7.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 16,
+                title: '20 идей постов, когда нечего писать',
+                img: './img/prod8.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 17,
+                title: '20 идей постов, когда нечего писать',
+                img: './img/prod9.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 18,
+                title: 'Чеклист важных дел',
+                img: './img/prod3.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 19,
+                title: 'Список подуктов здорового питания',
+                img: './img/prod11.jpg',
+                link: 'product.html'
+            },
+            {
+                id: 20,
+                title: 'Как вставать вовремя и не просыпать?',
+                img: './img/prod12.jpg',
+                link: 'product.html'
+            },
+        ];
+
+        posts.forEach(function(el){
+            var img = new Image();
+            img.src = el.img;
+        });
+
+
+    </script>
     <script type='text/javascript' src='js/app.js'></script>
 </body>
 </html>

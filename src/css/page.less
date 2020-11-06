@@ -1,0 +1,39 @@
+.page-content {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+  color: #3D424B;
+}
+.about-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  @media screen and (max-width: 1300px) {
+    flex-wrap: wrap;
+    > div {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .logo {
+    img {
+
+    }
+  }
+  .email {
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .social {
+    img {
+      width: 94px;
+      .margin(15px);
+      @media screen and (max-width: 500px) {
+        width: 50px;
+      }
+    }
+  }
+}

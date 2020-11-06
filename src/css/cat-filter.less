@@ -1,4 +1,8 @@
 .cat-filter {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   margin-bottom: 95px;
   @media screen and (max-width: 500px) {
     margin-bottom: 40px;
@@ -12,16 +16,53 @@
       font-size: 25px;
     }
   }
+  .mobile-filter-choosen {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    border: 2px solid #2C61F6;
+    border-radius: 12px;
+    cursor: pointer;
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 14px 7px 0 7px;
+            border-color: #000000 transparent transparent transparent;
+      position: relative;
+      top: 0;
+      margin-left: 16px;
+    }
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
   &__list {
     .flex();
     justify-content: space-between;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      position: absolute;
+      top: calc(100% + 10px);
+      background-color: #fff;
+      width: 100%;
+    }
   }
   &__item {
-    padding: 11px 36px;
+    padding: 11px 25px;
     font-size: 24px;
     cursor: pointer;
+    margin-bottom: 5px;
+    @media screen and (max-width: 800px) {
+      padding: 8px 15px;
+      font-size: 18px;
+    }
     @media screen and (max-width: 500px) {
-      padding: 5px 20px;
+      padding: 3px 10px;
       font-size: 18px;
     }
     &.active {

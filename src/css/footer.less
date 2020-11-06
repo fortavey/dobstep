@@ -46,16 +46,23 @@ footer.site-footer {
           font-size: 20px;
           line-height: 24px;
           color: #C1C1C1;
+          &:hover a {
+            text-decoration: underline;
+          }
           &::before {
             content: '-';
             margin-right: 10px;
+            @media screen and (max-width: 500px) {
+              content: '';
+              margin-right: 0;
+            }
           }
         }
       }
     }
     .social {
       img {
-        width: 31px;
+        width: 40px;
         margin-right: 10px;
       }
     }

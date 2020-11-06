@@ -100,6 +100,10 @@ function fonts(){
 	return gulp.src('./src/fonts/**/*')
 							.pipe(gulp.dest('./build/fonts'));
 }
+function files(){
+	return gulp.src('./src/files/**/*')
+							.pipe(gulp.dest('./build/files'));
+}
 function moveJquery(){
 	return gulp.src('./src/constant/jquery/**/*')
 							.pipe(gulp.dest('./build/js/jquery'))
@@ -119,7 +123,7 @@ function watch(){
 	gulp.watch('./src/**/*.html', html);
 }
 
-let build = gulp.series(clear, gulp.parallel(styles, html, js, img, fonts, moveJquery));
+let build = gulp.series(clear, gulp.parallel(styles, html, js, img, fonts, files, moveJquery));
 
 gulp.task('build', build);
 gulp.task('watch', gulp.series(build, watch));
