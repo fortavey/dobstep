@@ -1,27 +1,42 @@
 // Choose language
 try{
   (function(){
-    const lang = document.querySelector('.lang');
-    const langList = document.querySelector('.lang-list');
-    const absoluteBlock = document.querySelector('.item-absolute');
-
-    lang.addEventListener('click', e => {
-      e.stopPropagation();
-
-      document.body.addEventListener('click', e =>  lang.classList.remove('active'));
-
-      lang.classList.toggle('active');
-
-      const item = e.target.closest('.lang-list__item');
+    document.addEventListener('DOMContentLoaded', e => {
+      const lang = document.querySelector('.lang');
+      const langList = document.querySelector('.lang-list');
+      const absoluteBlock = document.querySelector('.item-absolute');
+      const currentLang = document.querySelector('.lang-item.current-lang a').getAttribute('lang');
       const mainLang = document.querySelector('.lang-list > .lang-list__item');
-      if(item && !item.classList.contains('active')) {
-        mainLang.classList.remove('active');
-        absoluteBlock.appendChild(mainLang);
 
-        item.classList.add('active');
-        langList.insertAdjacentElement('afterbegin', item);
-      }
-    })
+      mainLang.classList.remove('active');
+
+      absoluteBlock.appendChild(mainLang);
+      const activeLangElement = [...absoluteBlock.querySelectorAll('.lang-list__item')].find(el => el.dataset.lang === currentLang);
+
+      activeLangElement.classList.add('active');
+      langList.insertAdjacentElement('afterbegin', activeLangElement);
+
+      lang.addEventListener('click', e => {
+        e.stopPropagation();
+
+        document.body.addEventListener('click', e =>  lang.classList.remove('active'));
+
+        lang.classList.toggle('active');
+
+        const item = e.target.closest('.lang-list__item');
+        const mainLang = document.querySelector('.lang-list > .lang-list__item');
+        if(item && !item.classList.contains('active')) {
+          mainLang.classList.remove('active');
+          absoluteBlock.appendChild(mainLang);
+
+          item.classList.add('active');
+          langList.insertAdjacentElement('afterbegin', item);
+
+          const poli = item.dataset.lang;
+          document.querySelector('a[lang=' + poli + ']').click();
+        }
+      })
+    });
   })();
 }catch(err){console.log(err);}
 
@@ -53,3 +68,4 @@ try{
     }
   })();
 }catch(err){console.log(err);}
+

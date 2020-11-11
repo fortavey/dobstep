@@ -8,21 +8,26 @@
   .product {
     &-img {
       margin-right: 72px;
+      max-width: 400px;
+      flex-shrink: 0;
       @media screen and (max-width: 900px) {
         margin: auto;
         max-width: 500px;
+        flex-shrink: 1;
       }
       img {
 
       }
     }
     &-info {
-
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
     &-title {
       font-weight: 600;
       font-size: 48px;
-      line-height: 72px;
+      line-height: 50px;
       color: #3D424B;
       margin-top: 10px;
       @media screen and (max-width: 900px) {
@@ -41,12 +46,13 @@
         line-height: 25px;
       }
       p {
-
+        margin: 0 5px;
       }
     }
     &-save {
       height: 92px;
       position: relative;
+      margin-top: 40px;
       @media screen and (max-width: 500px) {
         height: 50px;
       }
@@ -99,6 +105,7 @@
     display: flex;
     justify-content: flex-start;
     text-align: center;
+    margin-top: auto;
     @media screen and (max-width: 600px) {
       flex-wrap: wrap;
       > div {
@@ -106,13 +113,13 @@
         text-align: center;
       }
     }
-    img {
-      margin-top: 19px;
+    img, li {
+      margin-top: 19px !important;
     }
     &__share {
       .margin(-8px);
       .share-list {
-        img {
+        li {
           .margin(8px);
           @media screen and (max-width: 500px) {
             .margin(5px);

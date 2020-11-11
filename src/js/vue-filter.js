@@ -8,7 +8,7 @@ if(document.querySelectorAll('.vue-object').length){
     increment = 3;
   }
 
-  if(window.innerWidth < 500)showMobile = false;
+  if(window.innerWidth < 501)showMobile = false;
 
   const filter = new Vue({
     el: '.vue-object',
@@ -33,7 +33,7 @@ if(document.querySelectorAll('.vue-object').length){
         this.activeCategory = [];
         this.activeCategory.push(categoryObject);
         this.changePosts();
-        if(window.innerWidth < 500) this.showMobile = false;
+        if(window.innerWidth < 501) this.showMobile = false;
       },
       changeCatClass(categoryObject){
         return this.activeCategory.includes(categoryObject) ? 'active' : '';
@@ -43,7 +43,7 @@ if(document.querySelectorAll('.vue-object').length){
         arr.splice(0, arr.length);
 
         this.resetAll();
-        if(window.innerWidth < 500) this.showMobile = false;
+        if(window.innerWidth < 501) this.showMobile = false;
       },
       changePosts(){
         const postsIdArray = [];
